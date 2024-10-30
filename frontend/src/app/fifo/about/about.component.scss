@@ -1,0 +1,140 @@
+
+.about .heading h2 {
+  font-size: 30px;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+}
+
+
+.about .heading p {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #999999;
+  margin: 20px 0 60px;
+  padding: 0;
+}
+
+.about h3 {
+  font-size: 25px;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+}
+
+.about p {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.8;
+  color: #0a0a0a;
+  margin: 20px 0 15px;
+  padding: 0;
+  text-align: justify;
+}
+
+.about h4 {
+  font-size: 15px;
+  font-weight: 500;
+  margin: 8px 0;
+}
+
+.text-primary {
+  color: #1b93d0;
+}
+
+.about h4 i {
+  color: #1b93d0;
+  margin-right: 10px;
+}
+
+h4 {
+  white-space: nowrap; /* Prevent text from wrapping */
+}
+
+
+
+// -----
+
+.mission-section {
+  display: flex;
+  justify-content: center; /* Centers content in container */
+  align-items: stretch;
+  background-color: #fff;
+  padding: 20px;
+  width: 100%;
+  gap: 40px; /* Adjust the gap between the cards to reduce space */
+  max-width: 900px; /* Limit the total width of the container */
+  margin: 0 auto; /* Centers the section on the screen */
+}
+
+.mission-content {
+  flex-basis: 45%; /* Sets each card to take about 45% of the available space */
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.mission-content img {
+  max-width: 300px; /* Adjust the icon size to make it a bit smaller */
+  margin-bottom: 15px;
+}
+
+.mission-content h3 {
+  text-align: center;
+  font-size: 22px; /* Adjusted size for better fit */
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.mission-text p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #0a0a0a;
+  text-align: center;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Floating animation for the right corner */
+.mission-content::before {
+  content: '';
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 80px;
+  height: 80px;
+  background-color: #1b93d0;
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: floatAnimation 6s ease-in-out infinite;
+}
+
+@keyframes floatAnimation {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-20px, 20px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+/* Mobile view: Stack cards vertically */
+@media (max-width: 767px) {
+  .mission-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mission-content {
+    max-width: 100%;
+    margin: 10px 0;
+  }
+}

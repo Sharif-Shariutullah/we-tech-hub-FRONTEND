@@ -1,0 +1,319 @@
+<div class="job-details">
+  <div class="header-bg">
+    <div class="container">
+      <div class="header">
+        <div class="text-center">  
+        <div class="title">{{ jobDetailsWithData?.jobTitle }}</div>
+      </div>
+
+
+
+        <div class="talent">
+          <img src="https://picsum.photos/200/300" alt="Profile Picture" />
+          <div class="info">
+            
+            &nbsp;
+            
+            <div class="p-info">
+              Top Talents
+              <span class="count" #countElement data-count="150"> 0+</span>
+            </div>
+            
+          </div>
+        
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+
+  
+
+  <div class="container">
+    <div class="content">
+      <h3>Overview</h3>
+      <p>{{ jobDetailsWithData?.jobDescription }}</p>
+    </div>
+
+    <div class="job-details py-1 mt-1">
+      <h4>Responsibilities</h4>
+
+      <ul>
+        <li *ngFor="let responsibility of jobDetailsWithData?.responsibilities">
+          {{ responsibility }}
+        </li>
+      </ul>
+
+      <h4>Requirements</h4>
+
+      <ul>
+        <li *ngFor="let requirements of jobDetailsWithData?.requirements">
+          {{ requirements }}
+        </li>
+      </ul>
+
+      <h4>What we offer</h4>
+      <ul>
+        <li *ngFor="let whatWeOffer of jobDetailsWithData?.whatWeOffer">
+          {{ whatWeOffer }}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
+
+
+  <div class="container">
+    <h4>Job Information</h4>
+    <table class="table">
+      <tbody>
+        <tr>
+          <th>
+            <span class="icon"><i class="fas fa-map-marker-alt"></i></span>
+            <span class="field-name">Location</span>
+          </th>
+          <td data-label="Location">
+            92, Ali Bhaban, Lift 3 & 5, Kazi Nazrul Islam Avenue, Kawran Bazar, Dhaka
+          </td>
+        </tr>
+  
+        <tr>
+          <th>
+            <span class="icon"><i class="fas fa-calendar-alt"></i></span>
+            <span class="field-name">Deadline</span>
+          </th>
+          <td style="font-weight: bolder">
+            {{ jobDetailsWithData?.applicationDeadline | date : "mediumDate" }}
+          </td>
+        </tr>
+  
+        <tr>
+          <th>
+            <span class="icon"><i class="fas fa-briefcase"></i></span>
+            <span class="field-name">Position</span>
+          </th>
+          <td>{{ jobDetailsWithData?.jobTitle }}</td>
+        </tr>
+  
+        <tr>
+          <th class="samp">
+            <span class="icon"><i class="fas fa-graduation-cap"></i></span>
+            <span class="field-name">Education</span>
+          </th>
+          <td class="samp">{{ jobDetailsWithData?.educationQualification }}</td>
+        </tr>
+  
+        <tr>
+          <th class="samp">
+            <span class="icon"><i class="fas fa-bolt"></i></span>
+            <span class="field-name">Experience</span>
+          </th>
+          <td class="samp">{{ jobDetailsWithData?.experienceRequired }} Years</td>
+        </tr>
+  
+        <tr>
+          <th>
+            <span class="icon"><i class="fas fa-money-bill-wave"></i></span>
+            <span class="field-name">Salary</span>
+          </th>
+          <td>{{ jobDetailsWithData?.salary | currency : "৳ " }} BDT</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+
+
+
+
+
+
+
+
+
+<!-- Job application form -->
+
+  <div class="pt-lg-5 py-2 bg-contrast">
+    <div class="container">
+      <h1 class="fw-bold text-center pt-5" style="color: #1b93d0">
+        Ignite Your Potential with Us
+        </h1>
+        <div
+        class="text-center mb-4 fs-5 py-2 px-lg-5"
+        style="line-height: 140%; color: #1b93d0"
+      >
+      Step into an environment where creativity meets opportunity
+      </div>
+
+      <div class="row">
+        <div class="text-center">
+          <div class="resume-form-wrapper">
+            <form
+              #applicationForm="ngForm"
+              (ngSubmit)="applyForNewJob(applicationForm)"
+            >
+              <h4 class="text-white">Your Contact Information</h4>
+              <div class="row">
+                <div class="col-md-6">
+                  <input
+                    type="text"
+                    class="resume-input form-control"
+                    id="name"
+                    name="name"
+                    placeholder="Your name"
+                    required
+                    [(ngModel)]="application.name"
+                  />
+                </div>
+                <div class="col-md-6">
+                  <input
+                    type="text"
+                    class="resume-input form-control"
+                    id="address"
+                    name="address"
+                    placeholder="Address"
+                    required
+                    [(ngModel)]="application.address"
+                  />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <input
+                    type="text"
+                    class="resume-input form-control"
+                    id="phone"
+                    name="phone"
+                    placeholder="Mobile(+880 )"
+                    required
+                    [(ngModel)]="application.phone"
+                  />
+                </div>
+
+                <div class="col-md-6">
+                  <input
+                    type="email"
+                    class="resume-input form-control"
+                    id="email"
+                    name="email"
+                    placeholder="Email"
+                    required
+                    [(ngModel)]="application.email"
+                  />
+                </div>
+              </div>
+
+
+
+
+              <h4 class="text-white">Professional Information</h4>
+              <div class="row">
+                <div class="col-md-6">
+                  <label
+                    style="
+                      text-align: left;
+                      font-weight: bold;
+                      font-family: 'Lucida Sans', 'Lucida Sans Regular',
+                        'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana,
+                        sans-serif;
+                    "
+                  >
+                    Position
+                  </label>
+
+                  <input
+                    type="text"
+                    class="resume-input form-control fw-bolder"
+                    id="position"
+                    name="position"
+                     [(ngModel)]="application.position"
+                    disabled
+                  />
+                </div>
+
+
+
+
+                <div class="col-md-6">
+                  <label
+                    style="
+                      text-align: left;
+                      font-weight: bold;
+                      font-family: 'Lucida Sans', 'Lucida Sans Regular',
+                        'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana,
+                        sans-serif;
+                    "
+                  >
+                    Experience
+                  </label>
+                  <input
+                    type="text"
+                    class="resume-input form-control"
+                    placeholder="Years of experience"
+                    id="yearsOfExperience"
+                    name="yearsOfExperience"
+                    required
+                    [(ngModel)]="application.yearsOfExperience"
+                  />
+                </div>
+              </div>
+
+              <div class="row row-cols-2">
+                <div class="col-12">
+                  <textarea
+                    rows="4"
+                    class="resume-input form-control"
+                    placeholder="Skills"
+                    id="skills"
+                    name="skills"
+                    required
+                    [(ngModel)]="application.skills"
+                  ></textarea>
+                </div>
+              </div>
+
+              <div class="row mb-3">
+                <div class="col-12">
+                  <label for="resume-cv-upload" class="form-label fs-5">
+                    <i class="fas fa-paperclip"></i> Resume
+                  </label>
+                  <input
+                    type="file"
+                    class="resume-input"
+                    id="resume-cv-upload"
+                    required
+                    (change)="onFileSelected($event)"
+                    accept=".pdf"
+                  />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-12">
+                  <button type="submit" class="resume-btn-submit">
+                    Apply Now
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

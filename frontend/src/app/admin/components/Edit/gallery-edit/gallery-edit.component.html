@@ -1,0 +1,286 @@
+<!-- Bluish Professional Form -->
+<div class="container mt-5">
+    <!-- Large Form Title -->
+    <h1 class="text-center mb-4 text-success">
+      <i class="fas fa-pencil-alt"></i> Update Post
+    </h1>
+  
+    <form
+      [formGroup]="postForm"
+      (ngSubmit)="UpdatePost()"
+      class="p-4 border rounded shadow-sm"
+      style="background-color: #93fca4"
+    >
+      <!-- Thumbnail Image Upload -->
+      <div class="form-group">
+        <label for="thumbnailImage">
+          <i class="fas fa-image text-success"></i> Thumbnail Image
+        </label>
+        <div
+          class="drag-drop-area p-3 border rounded text-center"
+          style="background-color: #fdfdfd; cursor: pointer"
+        >
+          <i class="fas fa-cloud-upload-alt fa-3x text-success mb-2"></i>
+  
+          <p>Drag & Drop to upload or</p>
+          <p style="font-weight: bold">Only Horizontal Photo</p>
+          <input
+            type="file"
+            class="form-control-file d-none"
+            id="thumbnailImage"
+            (change)="handleThumbnailSelection($event)"
+          />
+          <label for="thumbnailImage" class="btn btn-outline-success"
+            >Choose Thumbnail</label
+          >
+        </div>
+  
+        <!-- Thumbnail Preview -->
+        <div *ngIf="thumbnailPreview" class="mt-2">
+          <img
+            [src]="thumbnailPreview"
+            alt="Thumbnail Preview"
+            class="img-thumbnail"
+            width="200"
+          />
+        </div>
+      </div>
+  
+  
+      <!-- Title Field -->
+      <div class="form-group">
+        <label for="title"
+          ><i class="fas fa-heading text-success"></i> Title</label
+        >
+        <input
+          id="title"
+          class="form-control"
+          formControlName="title"
+          type="text"
+          placeholder="Enter post title"
+          required
+        />
+      </div>
+  
+      <!-- Subtitle Field -->
+      <div class="form-group">
+        <label for="subtitle"
+          ><i class="fas fa-subscript text-success"></i> Subtitle</label
+        >
+        <input
+          id="subtitle"
+          class="form-control"
+          formControlName="subtitle"
+          type="text"
+          placeholder="Enter post subtitle"
+          required
+        />
+      </div>
+  
+      <!-- Post Date Field -->
+      <div class="form-group">
+        <label for="postDate"
+          ><i class="fas fa-calendar-alt text-success"></i> Post Date</label
+        >
+        <input
+          id="postDate"
+          class="form-control"
+          formControlName="postDate"
+          type="date"
+          required
+        />
+      </div>
+  
+      <!-- Details Field -->
+      <div class="form-group">
+        <label for="details"
+          ><i class="fas fa-info-circle text-success"></i> Details</label
+        >
+        <textarea
+          id="details"
+          class="form-control"
+          formControlName="details"
+          rows="4"
+          placeholder="Enter post details"
+          required
+        ></textarea>
+      </div>
+  
+      <!-- Image and Caption Fields (Dynamic) -->
+      <div
+        *ngFor="let image of imageFormArray.controls; let i = index"
+        class="form-group"
+      >
+        <label class="py-3 px-3"
+          ><i class="fas fa-image text-success"></i> Image {{ i + 1 }}</label
+        >
+  
+        <!-- Drag-and-Drop Area -->
+        <div
+          class="drag-drop-area p-3 border rounded text-center"
+          (drop)="onFileDrop($event, i)"
+          (dragover)="onDragOver($event)"
+          style="background-color: #e6f7ff; cursor: pointer"
+        >
+          <i class="fas fa-cloud-upload-alt fa-3x text-success mb-2"></i>
+          <p>Drag & Drop to upload or</p>
+          <input
+            type="file"
+            class="form-control-file d-none"
+            id="image{{ i }}"
+            (change)="onFileSelected($event, i)"
+          />
+          <label for="image{{ i }}" class="btn btn-outline-success"
+            >Choose File</label
+          >
+        </div>
+  
+        <!-- Image Preview -->
+        <div *ngIf="image.get('previewUrl').value" class="mt-2">
+          <img
+            [src]="image.get('previewUrl').value"
+            alt="Preview"
+            class="img-thumbnail"
+            width="200"
+          />
+        </div>
+  
+        <!-- Caption Input -->
+        <!-- <label for="caption{{ i }}">
+          <i class="fas fa-comment-alt text-success"></i> Caption {{ i + 1 }}
+        </label>
+        <input
+          id="caption{{ i }}"
+          class="form-control"
+          formControlName="caption"
+          type="text"
+          placeholder="Enter image caption"
+        /> -->
+  
+        <!-- Remove Button -->
+        <button
+          type="button"
+          class="btn btn-danger btn-sm mt-2 float-end"
+          (click)="removeImage(i)"
+        >
+          <i class="fas fa-trash-alt"></i>
+        </button>
+      </div>
+  
+      <!-- Add Image Button -->
+      <button
+        type="button"
+        class="btn btn-outline-success btn-sm mb-3"
+        (click)="addImage()"
+      >
+        <i class="fas fa-plus"></i> Add Image
+      </button>
+  
+      <!-- Submit Button -->
+      <button type="submit" class="btn btn-success btn-block">
+        <i class="fa-solid fa-pen-to-square"></i> Update
+      </button>
+    </form>
+  </div>
+  
+
+
+<!-- don't delete -->
+
+<!-- it's responsiveness wide form  -->
+
+<!-- 
+  <div class="container-fluid p-4" style="background-color: #93fca4;">
+    <h1 class="text-center mb-4 text-success">
+      <i class="fas fa-pencil-alt"></i> Update Post
+    </h1>
+  
+    <form [formGroup]="postForm" (ngSubmit)="UpdatePost()" class="p-4 border rounded shadow-sm">
+      <div class="form-group">
+        <label for="thumbnailImage">
+          <i class="fas fa-image text-success"></i> Thumbnail Image
+        </label>
+        <div class="drag-drop-area p-3 border rounded text-center">
+          <i class="fas fa-cloud-upload-alt fa-3x text-success mb-2"></i>
+          <p>Drag & Drop to upload or</p>
+          <p style="font-weight: bold">Only Horizontal Photo</p>
+          <input
+            type="file"
+            class="form-control-file d-none"
+            id="thumbnailImage"
+            (change)="handleThumbnailSelection($event)"
+          />
+          <label for="thumbnailImage" class="btn btn-outline-success">Choose Thumbnail</label>
+        </div>
+        <div *ngIf="thumbnailPreview" class="mt-2">
+          <img [src]="thumbnailPreview" alt="Thumbnail Preview" class="img-thumbnail" width="100%" />
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="title"><i class="fas fa-heading text-success"></i> Title</label>
+        <input
+          id="title"
+          class="form-control"
+          formControlName="title"
+          type="text"
+          placeholder="Enter post title"
+          required
+        />
+      </div>
+  
+      <div class="form-group">
+        <label for="subtitle"><i class="fas fa-subscript text-success"></i> Subtitle</label>
+        <input
+          id="subtitle"
+          class="form-control"
+          formControlName="subtitle"
+          type="text"
+          placeholder="Enter post subtitle"
+          required
+        />
+      </div>
+  
+      <div class="form-group">
+        <label for="postDate"><i class="fas fa-calendar-alt text-success"></i> Post Date</label>
+        <input id="postDate" class="form-control" formControlName="postDate" type="date" required />
+      </div>
+  
+      <div class="form-group">
+        <label for="details"><i class="fas fa-info-circle text-success"></i> Details</label>
+        <textarea
+          id="details"
+          class="form-control"
+          formControlName="details"
+          rows="4"
+          placeholder="Enter post details"
+          required
+        ></textarea>
+      </div>
+  
+      <div *ngFor="let image of imageFormArray.controls; let i = index" class="form-group">
+        <label><i class="fas fa-image text-success"></i> Image {{ i + 1 }}</label>
+        <div class="drag-drop-area p-3 border rounded text-center" (drop)="onFileDrop($event, i)" (dragover)="onDragOver($event)">
+          <i class="fas fa-cloud-upload-alt fa-3x text-success mb-2"></i>
+          <p>Drag & Drop to upload or</p>
+          <input type="file" class="form-control-file d-none" id="image{{ i }}" (change)="onFileSelected($event, i)" />
+          <label for="image{{ i }}" class="btn btn-outline-success">Choose File</label>
+        </div>
+        <div *ngIf="image.get('previewUrl').value" class="mt-2">
+          <img [src]="image.get('previewUrl').value" alt="Preview" class="img-thumbnail" width="100%" />
+        </div>
+        <button type="button" class="btn btn-danger btn-sm mt-2 float-end" (click)="removeImage(i)">
+          <i class="fas fa-trash-alt"></i>
+        </button>
+      </div>
+  
+      <button type="button" class="btn btn-outline-success btn-sm mb-3" (click)="addImage()">
+        <i class="fas fa-plus"></i> Add Image
+      </button>
+  
+      <button type="submit" class="btn btn-success btn-block">
+        <i class="fa-solid fa-pen-to-square"></i> Update
+      </button>
+    </form>
+  </div>
+   -->

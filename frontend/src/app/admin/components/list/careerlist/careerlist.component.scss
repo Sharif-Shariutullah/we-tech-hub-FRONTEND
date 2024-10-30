@@ -1,0 +1,91 @@
+
+
+  .truncate-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Limits to 3 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+  }
+  
+  .header-cell {
+    background-color: aquamarine;
+  }
+  
+  .cell {
+    background-color: rgb(255, 255, 255);
+    transition: background-color 0.3s;
+  }
+  
+  .cell:hover {
+    background-color: #1B93D0; /* Hover color */
+    color: white; /* Change text color on hover */
+  }
+  
+  .hover-row:hover {
+    background-color: #1B93D0; /* Hover effect on row */
+    color: white; /* Change text color on hover */
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .header {
+      padding: 10px;
+    }
+  
+    .mat-table {
+      font-size: 14px; /* Smaller font size on mobile */
+    }
+  }
+  
+
+
+  /* Ensure the table container is scrollable on small screens */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  margin: 20px 0;
+}
+
+/* Make text smaller and the table more compact on mobile screens */
+@media (max-width: 768px) {
+  table {
+    font-size: 12px;
+  }
+
+  .header h1 {
+    font-size: 20px;
+  }
+
+  .header h3 {
+    font-size: 14px;
+  }
+
+  .mat-header-cell, .mat-cell {
+    padding: 8px;
+  }
+
+  /* Hide some columns on small screens */
+  th.mat-header-cell:nth-child(3), td.mat-cell:nth-child(3), /* Job Description */
+  th.mat-header-cell:nth-child(4), td.mat-cell:nth-child(4)  /* Responsibility */ {
+    display: none;
+  }
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 18px;
+  }
+
+  .header h3 {
+    font-size: 12px;
+  }
+
+  .mat-header-cell, .mat-cell {
+    padding: 6px;
+  }
+
+  /* More columns can be hidden for small devices to reduce clutter */
+}

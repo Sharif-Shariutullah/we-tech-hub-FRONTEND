@@ -1,0 +1,114 @@
+<h1 class="page-header">
+  <b>Update News</b>
+</h1>
+
+<div class="container bg-light shadow p-5 my-4 rounded">
+  <form [formGroup]="newsForm" (ngSubmit)="UpdateNews()">
+    <!-- Row 1: File Upload and Title -->
+
+    <div class="row justify-content-center">
+      <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+        <label class="file-upload-container">
+          <i class="fa fa-camera fa-2x upload-icon"></i>
+          <span>Select a Photo</span>
+          <input
+            type="file"
+            id="fileInput"
+            (change)="onFileSelected($event)"
+            hidden
+          />
+        </label>
+
+        <div *ngIf="imagePreview" class="image-preview mt-3">
+          <img
+            [src]="imagePreview"
+            alt="Selected Image"
+            class="preview-image"
+            (click)="openModal()"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 mb-4">
+        <label class="form-label">
+          <i class="fa fa-header fa-lg"></i> &nbsp; Title
+        </label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Title"
+          formControlName="title"
+        />
+
+      </div>
+    </div>
+
+    <!-- Row 2: Subtitle -->
+    <div class="row">
+      <div class="col-12 mb-4">
+        <label class="form-label">
+          <i class="fa fa-pencil fa-lg"></i> &nbsp; Subtitle
+        </label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Subtitle"
+          formControlName="subtitle"
+        />
+
+      </div>
+    </div>
+    <!-- Row 2: Details -->
+    <div class="row">
+      <div class="col-12 mb-4">
+        <label class="form-label">
+          <i class="fa fa-align-left fa-lg"></i> &nbsp; Details
+        </label>
+        <textarea
+          type="text"
+          class="form-control"
+          placeholder="Details"
+          formControlName="details"
+          rows="10"
+          cols="70"
+        >
+        </textarea>
+
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="row mt-4">
+      <div class="col text-center">
+        <button type="submit" class="btn btn-success btn-lg">
+          <i class="fa-solid fa-pen-to-square"></i> &nbsp; Update
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<!-- Image Preview Modal -->
+<div
+  class="modal"
+  id="imagePreviewModal"
+  tabindex="-1"
+  [ngClass]="{ show: isModalOpen }"
+  (click)="closeModal()"
+>
+  <div
+    class="modal-dialog modal-dialog-centered modal-fullscreen"
+    (click)="$event.stopPropagation()"
+  >
+    <div class="modal-content">
+      <div class="modal-body">
+        <img [src]="imagePreview" class="img-fluid w-100" alt="Preview Image" />
+      </div>
+      <button type="button" class="btn-close" (click)="closeModal()">
+        <i class="fa-solid fa-rectangle-xmark"></i>
+      </button>
+    </div>
+  </div>
+</div>

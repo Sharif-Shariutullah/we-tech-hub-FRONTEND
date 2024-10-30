@@ -1,0 +1,113 @@
+<div class="header" style="padding: 1%; text-align: center; background-color: #29b2e6; color: white;">
+  <div class="fs-1">
+    <b> See Your Completed Job List</b>
+
+
+  </div>
+
+<div>
+    <button mat-icon-button aria-label="Applicants">
+        <mat-icon style="font-size: 25px">notifications</mat-icon>
+        <span
+          matBadge="{{ complete.length }}"
+          matBadgeColor="warn"
+          matBadgeOverlap="false"
+        ></span>
+      </button>
+</div>
+
+
+</div>
+
+<div class="py-5 container" style="align-items: center; justify-content: center; text-align: center">
+  <button type="submit" class="btn btn-success btn-block fs-3" routerLink="/admin/careerPost" routerLinkActive="Active">
+    <i class="fa-solid fa-circle-plus"></i>&nbsp; Add More
+  </button>
+</div>
+
+<!-- Responsive Table Container -->
+<div class="table-container">
+  <table mat-table [dataSource]="complete" class="mat-elevation-z8">
+    <!-- ID Column -->
+    <ng-container matColumnDef="#">
+      <th mat-header-cell *matHeaderCellDef class="header-cell text-bg-primary">
+        <b>#</b>
+      </th>
+      <td mat-cell *matCellDef="let element; let i = index" class="cell">
+        <b>{{ i + 1 }}</b>
+      </td>
+    </ng-container>
+    <!-- ID Column -->
+    <ng-container matColumnDef="ID">
+      <th mat-header-cell *matHeaderCellDef class="header-cell text-bg-primary">
+        <b>ID</b>
+      </th>
+      <td mat-cell *matCellDef="let element" class="cell text-bg-primary">
+        <b>{{ element.id }}</b>
+      </td>
+    </ng-container>
+    <!-- Job Title Column -->
+    <ng-container matColumnDef="Job Title">
+      <th mat-header-cell *matHeaderCellDef class="header-cell text-bg-primary">
+        <b>Job Title</b>
+      </th>
+      <td mat-cell *matCellDef="let element" class="cell">
+        {{ element.jobTitle }}
+      </td>
+    </ng-container>
+
+    <!-- Salary Column -->
+    <ng-container matColumnDef="Salary">
+      <th mat-header-cell *matHeaderCellDef class="header-cell text-bg-primary">
+        <b>Salary</b>
+      </th>
+      <td mat-cell *matCellDef="let element" class="cell">
+        {{ element.salary }}
+      </td>
+    </ng-container>
+    <!-- Experience Column -->
+    <ng-container matColumnDef="Experience">
+      <th mat-header-cell *matHeaderCellDef class="header-cell text-bg-primary">
+        <b>Experience</b>
+      </th>
+      <td mat-cell *matCellDef="let element" class="cell text-center">
+        <b>{{ element.experienceRequired }}</b>
+      </td>
+    </ng-container>
+    <!-- Education Column -->
+    <ng-container matColumnDef="Education">
+      <th mat-header-cell *matHeaderCellDef class="header-cell text-bg-primary">
+        <b>Education</b>
+      </th>
+      <td mat-cell *matCellDef="let element" class="cell">
+        {{ element.educationQualification }}
+      </td>
+    </ng-container>
+    <!-- Deadline Column -->
+    <ng-container matColumnDef="Deadline">
+      <th mat-header-cell *matHeaderCellDef class="header-cell text-bg-primary">
+        <b>Deadline</b>
+      </th>
+      <td mat-cell *matCellDef="let element" class="cell">
+        {{ element.applicationDeadline }}
+      </td>
+    </ng-container>
+  
+
+
+
+    <!-- Delete Column -->
+    <ng-container matColumnDef="Delete">
+      <th mat-header-cell *matHeaderCellDef class="header-cell text-bg-primary">
+        <b>Delete</b>
+      </th>
+      <td mat-cell *matCellDef="let element" class="cell">
+        <button mat-icon-button color="warn" (click)="deleteCompletedJobPost(element.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns" class="hover-row"></tr>
+  </table>
+</div>

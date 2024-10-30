@@ -1,0 +1,70 @@
+
+
+<div class="container">
+  <div class="news-details">
+    <h1>{{ newsModelArray.title }}</h1>
+
+    <div *ngIf="newsModelArray.img" class="image-container">
+      <img
+        [ngClass]="{
+          'horizontal-image': isHorizontalImage,
+          'vertical-image': !isHorizontalImage
+        }"
+        class="news-image"
+        [src]="newsModelArray.img"
+        alt="News Image"
+      />
+    </div>
+
+    <div class="subtitle">
+      {{ newsModelArray.subtitle }}
+    </div>
+
+    <hr />
+
+    <div class="description-paragraph">
+      {{ newsModelArray.details }}
+    </div>
+ 
+
+
+  </div>
+
+
+
+
+
+
+  <!-- <div class="more-news">
+    <h2>More News</h2>
+    <div *ngFor="let newsItem of newsData">
+      <div class="news-item" (click)="getNewsByTitleId(newsItem.id)">
+        <h1 class="news-title">{{ newsItem.title }}</h1>
+        <hr class="news-divider" />
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+<div class="more-news">
+  <h2>More News</h2>
+  
+  <!-- Display only the first 7 news items -->
+  <div *ngFor="let newsItem of newsData.slice(0, 7)">
+    <div class="news-item" (click)="getNewsByTitleId(newsItem.id)">
+      <h1 class="news-title">{{ newsItem.title }}</h1>
+      <hr class="news-divider" />
+    </div>
+  </div>
+
+  <!-- Button to route to the full news page -->
+   <div class=" text-center">
+
+
+ 
+  <button class="btn btn-success fs-5  p-2 m-1" (click)="navigateToFullNewsPage()">View All</button>
+
+</div>
+  
+</div>

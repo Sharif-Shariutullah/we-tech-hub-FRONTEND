@@ -1,0 +1,646 @@
+<div *ngIf="!isCustomerLoggedIn && !isAdminLoggedIn">
+  <!-- nav 01 -->
+  <nav class="navbar navbar-expand-lg nav-bg">
+    <div class="container">
+      <ul class="navbar-nav">
+        <li class="nav-item fs-6">
+          <a
+            href="mailto: info@fifo-tech.com"
+            target="_blank"
+            style="text-decoration: none; color: white"
+          >
+            <i class="fa-solid fa-envelope" style="color: #ffffff"> </i>
+            <span class="email-text"> info&commat;wetechhub.com </span>
+          </a>
+        </li>
+      </ul>
+      <div>
+        <ul class="nav justify-content-center">
+          <!-- call  -->
+          <li class="nav-item">
+            <a
+              href="tel:+880 1927 666 222"
+              target="_blank"
+              class="nav-link px-2 text-muted"
+            >
+              <i
+                class="fa-solid fa-phone"
+                style="color: #fafafa; font-size: 24px"
+              ></i>
+            </a>
+          </li>
+
+          <!-- WhatsApp -->
+          <li class="nav-item">
+            <a
+              aria-label="WhatsApp"
+              href="https://wa.me/8801927666222"
+              class="nav-link px-2 text-muted"
+              target="_blank"
+            >
+              <i
+                class="fa-brands fa-whatsapp"
+                style="color: #ffffff; font-size: 24px"
+              ></i>
+            </a>
+          </li>
+          <!-- facebook  -->
+
+          <li class="nav-item">
+            <a
+              href="https://www.facebook.com/WeTech.Hub.bd"
+              class="nav-link px-2 text-muted"
+              target="_blank"
+            >
+              <i
+                class="fa-brands fa-facebook"
+                style="color: #ffffff; font-size: 24px"
+              ></i>
+            </a>
+          </li>
+
+          <!-- youtube -->
+
+          <li class="nav-item">
+            <a
+              href="https://www.youtube.com/@WeTechHubBD"
+              class="nav-link px-2 text-muted"
+              target="_blank"
+            >
+              <i
+                class="fa-brands fa-youtube"
+                style="color: #ffffff; font-size: 24px"
+              ></i>
+            </a>
+          </li>
+          <!-- linked in  -->
+
+          <!-- <li class="nav-item">
+            <a href="https://bd.linkedin.com/company/We Tech Hub" class="nav-link px-2 text-muted" target="_blank">
+              <i class="fa-brands fa-linkedin" style="color: #fcfcfc; font-size: 24px;"></i>
+            </a>
+
+          </li> -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- nav 02 -->
+
+  <!-- Bootstrap Navbar with Toggle Button for Mobile -->
+  <nav
+    class="navbar sticky-top navbar-expand-lg navbar-light bg-white"
+    style="padding-top: 0px; padding-bottom: 0px; height: 100px"
+  >
+    <div class="container">
+      <div routerLink="/home" routerLinkActive="active">
+        <a class="navbar-brand" href="#">
+          <img
+            src="assets/photo/top_navbar_100x100.png"
+            alt="logo"
+            class="d-inline-block align-text-top"
+          />
+        </a>
+      </div>
+
+      <!-- Toggle button for mobile view -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Navbar items that will collapse for mobile -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              aria-current="page"
+              routerLink="/home"
+              routerLinkActive="active"
+              (click)="onNavClick()"
+              style="font-weight: 500; font-size: 15px"
+              >Home</a
+            >
+          </li>
+
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              aria-current="page"
+              routerLink="/about"
+              routerLinkActive="active"
+              (click)="onNavClick()"
+              style="font-weight: 500; font-size: 15px"
+              >About</a
+            >
+          </li>
+
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              aria-current="page"
+              routerLink="/service"
+              routerLinkActive="active"
+              id="navbarDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              style="font-weight: 500; font-size: 15px"
+            >
+              Services
+            </a>
+            <ul
+              class="dropdown-menu dropdown-content"
+              aria-labelledby="navbarDropdown"
+            >
+              <li>
+                <a
+                  class="dropdown-item"
+                  [routerLink]="'/contact-center'"
+                  (click)="onNavClick()"
+                  >Contact Center</a
+                >
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  [routerLink]="'/back-office'"
+                  (click)="onNavClick()"
+                  >Back-Office</a
+                >
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  [routerLink]="'/digital-marketing'"
+                  (click)="onNavClick()"
+                  >Digital Marketing</a
+                >
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  [routerLink]="'/creative-design'"
+                  (click)="onNavClick()"
+                  >Creative Design</a
+                >
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  [routerLink]="'/app-design-development'"
+                  (click)="onNavClick()"
+                  >Application Design & Development</a
+                >
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  [routerLink]="'/skills-development'"
+                  (click)="onNavClick()"
+                  >Skills Development</a
+                >
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  [routerLink]="'/finance-and-accounting'"
+                  (click)="onNavClick()"
+                  >Finance & Accounting</a
+                >
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              aria-current="page"
+              routerLink="/career"
+              routerLinkActive="active"
+              (click)="onNavClick()"
+              style="font-weight: 500; font-size: 15px"
+              >Career</a
+            >
+          </li>
+
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              aria-current="page"
+              routerLink="/news"
+              routerLinkActive="active"
+              (click)="onNavClick()"
+              style="font-weight: 500; font-size: 15px"
+              >News & Events</a
+            >
+          </li>
+
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              aria-current="page"
+              routerLink="/gallery"
+              routerLinkActive="active"
+              (click)="onNavClick()"
+              style="font-weight: 500; font-size: 15px"
+              >Gallery</a
+            >
+          </li>
+
+
+
+<!-- comment out  -->
+          
+          <!-- <li class="nav-item">
+            <a
+              class="nav-link"
+              aria-current="page"
+              routerLink="/global-bpo"
+              routerLinkActive="active"
+              (click)="onNavClick()"
+              style="font-weight: 500; font-size: 15px"
+              >Global BPO </a
+            >
+          </li> -->
+
+
+
+
+
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              aria-current="page"
+              routerLink="/contact"
+              routerLinkActive="active"
+              (click)="onNavClick()"
+              style="font-weight: 500; font-size: 15px"
+              >Contact</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<!-- admin panel   -->
+
+<div *ngIf="isAdminLoggedIn">
+  <mat-toolbar class="navbar nav-bg">
+  <span class="navbar-brand px-1 shadow-lg bg-white rounded" >  Admin Panel  </span> &nbsp;
+    <span
+      class="navbar-brand"
+      mat-button
+     
+      >  We Tech Hub</span
+    >
+    <span class="spacer"></span>
+
+    <button
+      class="nav-taxt"
+      style="color: white"
+      mat-button
+      routerLink="/admin/createEverything"
+      routerLinkActive="active"
+    >
+      Create
+    </button>
+    <button
+      class="nav-taxt"
+      style="color: white"
+      mat-button
+      routerLink="/admin/listOfEverything"
+      routerLinkActive="active"
+    >
+      List
+    </button>
+    <button
+      mat-icon-button
+      routerLink="/ApplicantList"
+      routerLinkActive="active"
+    >
+      <mat-icon>account_box</mat-icon>
+
+      <!-- Applicant  -->
+    </button>
+    <button
+      mat-icon-button
+      routerLink="/admin/contactMessageList"
+      routerLinkActive="active"
+    >
+      <mat-icon>call</mat-icon>
+
+      <!-- Contact Message  -->
+    </button>
+    <!-- <button
+      mat-icon-button
+      routerLink="/client-contact-list"
+      routerLinkActive="active"
+      color="warn"
+    >
+      <mat-icon>notifications_active</mat-icon>
+    </button> -->
+
+    <button
+      mat-raised-button
+      color="warn"
+      routerLinkActive="active"
+      (click)="logout()"
+    >
+      Logout
+    </button>
+  </mat-toolbar>
+</div>
+
+<!-- customer panel  -->
+
+<div *ngIf="isCustomerLoggedIn">
+  <mat-toolbar color="primary" class="navbar">
+    <span
+      class="navbar-brand"
+      mat-button
+      routerLink="/home"
+      routerLinkActive="active"
+      >We Tech Hub</span
+    >
+    <span class="spacer"></span>
+
+    <button mat-button routerLink="/home" routerLinkActive="active">
+      Home
+    </button>
+    <button mat-button routerLink="/service" routerLinkActive="active">
+      Service
+    </button>
+    <button mat-button routerLink="/news" routerLinkActive="active">
+      News & Events
+    </button>
+    <button mat-button routerLink="/gallery" routerLinkActive="active">
+      Gallery
+    </button>
+    <button mat-button routerLink="/team" routerLinkActive="active">
+      Team
+    </button>
+
+    <button mat-button routerLink="/career" routerLinkActive="active">
+      Career
+    </button>
+
+    <button mat-button routerLink="/contact" routerLinkActive="active">
+      Contact
+    </button>
+    <button mat-button routerLink="/gallery" routerLinkActive="active">
+      Global BPO
+    </button>
+    <button mat-button routerLink="/about" routerLinkActive="active">
+      About
+    </button>
+
+    <button mat-button routerLinkActive="active" (click)="logout()">
+      Logout
+    </button>
+  </mat-toolbar>
+</div>
+
+<router-outlet></router-outlet>
+
+<div *ngIf="!isCustomerLoggedIn && !isAdminLoggedIn">
+  <!-- footer start  -->
+
+  <footer class="pt-5 pb-4">
+    <hr />
+    <div class="container text-center text-md-left">
+      <div class="row text-center text-md-left">
+        <!-- logo  -->
+
+        <div class="col-md-3 col-lg-3 col-xl-3 mx-auto">
+          <img
+            src="assets\photo\bottom_navbar_300x300.png"
+            alt="logo"
+            class="footer-logo"
+          />
+
+          <div style="font-size: small; font-weight: 500; text-align: justify">
+            Provide a full range of Outsourcing Services, IT / ITES Services,
+            and Solutions to businesses and industry leaders, both large and
+            small
+          </div>
+        </div>
+
+        <!-- service  -->
+
+        <div class="col-md-2 col-lg-2 col-x1-2 mx-auto mt-3">
+          <h5 class="text-uppercase mb-2" style="color: #000000">Service</h5>
+
+          <p style="margin-bottom: 5px">
+            <a
+              class="footer-subtext"
+              routerLink="/contact-center"
+              style="text-decoration: none; font-weight: 500"
+            >
+              Contact Center</a
+            >
+          </p>
+          <p style="margin-bottom: 5px">
+            <a
+              class="footer-subtext"
+              routerLink="/back-office"
+              style="text-decoration: none; font-weight: 500"
+            >
+              Back-Office Services</a
+            >
+          </p>
+          <p style="margin-bottom: 5px">
+            <a
+              class="footer-subtext"
+              routerLink="/digital-marketing"
+              style="text-decoration: none; font-weight: 500"
+            >
+              Digital Marketing</a
+            >
+          </p>
+          <p style="margin-bottom: 5px">
+            <a
+              class="footer-subtext"
+              routerLink="/creative-design"
+              style="text-decoration: none; font-weight: 500"
+            >
+              Creative Design</a
+            >
+          </p>
+          <p style="margin-bottom: 5px">
+            <a
+              class="footer-subtext"
+              routerLink="/app-design-development"
+              style="text-decoration: none; font-weight: 500"
+            >
+              Application Design & Development
+            </a>
+          </p>
+          <p style="margin-bottom: 5px">
+            <a
+              class="footer-subtext"
+              routerLink="/skills-development"
+              style="text-decoration: none; font-weight: 500"
+            >
+              Skills Development
+            </a>
+          </p>
+          <p style="margin-bottom: 5px">
+            <a
+              class="footer-subtext"
+              routerLink="/finance-And-Accounting"
+              style="text-decoration: none; font-weight: 500"
+            >
+              Finance & Accounting
+            </a>
+          </p>
+        </div>
+
+        <!-- links  -->
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+          <h5 class="text-uppercase mb-2" style="color: #000000">PAGES</h5>
+
+          <p style="margin-bottom: 5px">
+            <a
+              class="footer-subtext"
+              routerLink="/home"
+              style="text-decoration: none; font-weight: 500"
+            >
+             Home</a
+            >
+          </p>
+          <p style="margin-bottom: 5px">
+            <a
+              class="footer-subtext"
+              routerLink="/about"
+              style="text-decoration: none; font-weight: 500"
+            >
+              About us</a
+            >
+          </p>
+          <p style="margin-bottom: 5px">
+            <a
+              class="footer-subtext"
+              routerLink="/gallery"
+              style="text-decoration: none; font-weight: 500"
+            >
+              Gallery
+            </a>
+          </p>
+          <p style="margin-bottom: 5px">
+            <a
+              class="footer-subtext"
+              routerLink="/career"
+              style="text-decoration: none; font-weight: 500"
+            >
+              Career
+            </a>
+          </p>
+          <p style="margin-bottom: 5px">
+            <a
+              class="footer-subtext"
+              routerLink="/contact"
+              style="text-decoration: none; font-weight: 500"
+            >
+              Contact</a
+            >
+          </p>
+        </div>
+
+        <!-- addreess -->
+
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+          <h5><b>Office</b></h5>
+          <p style="font-size: 14px">
+            92, Ali Bhaban, Lift 3, Kazi Nazrul Islam Avenue, Kawran Bazar,
+            Dhaka
+          </p>
+
+          <h5><b>Phone</b></h5>
+          <p>
+            <span style="font-weight: 500; font-size: 14px">Tel: </span>
+            <span style="font-size: 14px">+8802448100123</span> <br />
+            <span style="font-weight: 500; font-size: 14px"
+              >Business Contact:</span
+            >
+            <span style="font-size: 14px">+8801927666222</span> <br />
+            <span style="font-weight: 500; font-size: 14px">HR Contact:</span>
+            <span style="font-size: 14px">+8801700743171</span><br />
+            <span style="font-size: 13px"
+              >Saturday-Thursday (9 AM to 6 PM Except Fridays & Govt
+              Holidays)</span
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <footer>
+    <div
+      class="d-flex justify-content-between align-items-center"
+      style="background-color: #1b93d0; height: auto; padding: 10px 0"
+    >
+      <p class="text-white ms-5 mb-0 text-sm">
+        &copy; 2024 | <b>WeTech Hub</b>. All rights reserved.
+      </p>
+
+      <!-- Icons are visible on screens larger than 576px, hidden on smaller screens -->
+      <ul
+        class="list-unstyled d-flex me-5 mb-0 d-none d-sm-flex"
+        style="list-style-type: none"
+      >
+        <li class="ms-2">
+          <a
+            href="https://www.facebook.com/WeTech.Hub.bd"
+            class="nav-link px-2 text-muted"
+            target="_blank"
+          >
+            <i
+              class="fa-brands fa-facebook"
+              style="color: #ffffff; font-size: 24px"
+            ></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            aria-label="WhatsApp"
+            href="https://wa.me/8801927666222"
+            class="nav-link px-2 text-muted"
+            target="_blank"
+          >
+            <i
+              class="fa-brands fa-whatsapp"
+              style="color: #ffffff; font-size: 24px"
+            ></i>
+          </a>
+        </li>
+        <li class="ms-1">
+          <a
+            href="https://www.youtube.com/@WeTechHubBD"
+            class="nav-link px-2 text-muted"
+            target="_blank"
+          >
+            <i
+              class="fa-brands fa-youtube"
+              style="color: #ffffff; font-size: 24px"
+            ></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+</div>
+
+<!-- footer end  -->
